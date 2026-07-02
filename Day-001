@@ -1,0 +1,36 @@
+# Day 01 - Maximum Subarray
+
+## Problem Statement
+Given an integer array `nums`, find the contiguous subarray that has the largest sum and return its sum.
+
+## Code
+
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        int currSum = 0, maxSum = INT_MIN;
+
+        for(int i = 0; i < n; i++){
+            currSum += nums[i];
+
+            maxSum = max(currSum, maxSum);
+
+            if(currSum < 0){
+                currSum = 0;
+            }
+        }
+
+        return maxSum;
+    }
+};
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses **Kadane's Algorithm** to find the maximum subarray sum efficiently. We maintain a running sum (`currSum`) and add each element to it while traversing the array. After every addition, we compare `currSum` with `maxSum` and update `maxSum` if a larger sum is found. If `currSum` becomes negative, it is reset to `0` because a negative sum cannot contribute to a larger subarray in the future. By the end of the traversal, `maxSum` stores the maximum sum of any contiguous subarray.
