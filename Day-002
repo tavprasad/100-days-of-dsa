@@ -1,0 +1,40 @@
+# Day 02 - Majority Element
+
+## Problem Statement
+Given an integer array `nums` of size `n`, return the majority element.
+
+The majority element is the element that appears more than `⌊n / 2⌋` times. It is guaranteed that the majority element always exists in the array.
+
+## Code
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int freq = 0, ans = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (freq == 0) {
+                ans = nums[i];
+            }
+
+            if (ans == nums[i]) {
+                freq++;
+            } else {
+                freq--;
+            }
+        }
+
+        return ans;
+    }
+};
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Boyer-Moore Voting Algorithm**. We maintain a candidate (`ans`) and a counter (`freq`). Initially, when the counter becomes `0`, we select the current element as the new candidate. If the current element matches the candidate, we increment the counter; otherwise, we decrement it. Since the majority element appears more than `n/2` times, it cannot be completely canceled out by the other elements. Therefore, after traversing the array once, the remaining candidate is guaranteed to be the majority element.
