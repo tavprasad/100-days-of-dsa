@@ -1,0 +1,40 @@
+# Day 03 - Best Time to Buy and Sell Stock
+
+## Problem Statement
+You are given an integer array `prices` where `prices[i]` represents the price of a stock on the `i`th day.
+
+Choose a single day to buy one stock and a different day in the future to sell it. Return the maximum profit you can achieve from this transaction. If no profit can be made, return `0`.
+
+## Code
+
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        if (n == 0) return 0;
+
+        int buy = prices[0];
+        int maxProf = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (prices[i] > buy) {
+                maxProf = max(maxProf, prices[i] - buy);
+            } else {
+                buy = min(buy, prices[i]);
+            }
+        }
+
+        return maxProf;
+    }
+};
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution traverses the array only once while keeping track of the minimum stock price encountered so far (`buy`). For each day's price, if it is greater than the buying price, we calculate the profit and update the maximum profit if it is larger than the current maximum. If the current price is lower than the buying price, we update the buying price since purchasing at a lower price can lead to a higher profit in the future. If no profitable transaction is possible, the function returns `0`.
