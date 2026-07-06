@@ -34,10 +34,10 @@ Each day's folder contains:
 | Day | Status |
 |-----|--------|
 | 1 | ✅ |
-| 2 | ⬜ |
-| 3 | ⬜ |
-| ... | ... |
-| 100 | ⬜ |
+| 2 | ✅ |
+| 3 | ✅ |
+| 4 | ✅ |
+| 5 | ✅ |
 
 🎯 Topics Covered
 - Arrays
