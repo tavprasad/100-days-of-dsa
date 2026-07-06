@@ -1,0 +1,43 @@
+# Day 05 - Product of Array Except Self
+
+## Problem Statement
+Given an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.
+
+The product of any prefix or suffix of `nums` is guaranteed to fit in a 32-bit integer.
+
+You must write an algorithm that runs in **O(n)** time and **without using the division operation**.
+
+## Code
+
+```cpp
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n, 1);
+
+        // Store prefix products
+        for (int i = 1; i < n; i++) {
+            ans[i] = ans[i - 1] * nums[i - 1];
+        }
+
+        // Multiply with suffix products
+        int suffix = 1;
+        for (int i = n - 2; i >= 0; i--) {
+            suffix *= nums[i + 1];
+            ans[i] *= suffix;
+        }
+
+        return ans;
+    }
+};
+```
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)** *(excluding the output array)*
+
+## Approach
+This solution computes the answer without using division by combining **prefix** and **suffix** products. In the first traversal, each position in the answer array stores the product of all elements to its left. Then, during the second traversal from right to left, we maintain a running suffix product representing the product of all elements to the right of the current index. Multiplying the prefix product already stored in the answer array with the current suffix product gives the product of all elements except the current one. This approach visits the array only twice, achieving linear time complexity while using constant extra space (excluding the output array).
