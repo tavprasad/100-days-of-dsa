@@ -1,0 +1,46 @@
+# Day 07 - Peak Index in a Mountain Array
+
+## Problem Statement
+You are given an integer mountain array `arr` of length `n`, where the values strictly increase to a peak element and then strictly decrease.
+
+Return the index of the peak element.
+
+You must solve the problem in **O(log n)** time complexity.
+
+## Code
+
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n = arr.size();
+        int st = 1, end = n - 2;
+
+        while (st <= end) {
+            int mid = (st + end) / 2;
+
+            if (arr[mid - 1] < arr[mid] && arr[mid] > arr[mid + 1]) {
+                return mid;
+            }
+            else if (arr[mid - 1] < arr[mid]) {
+                st = mid + 1;
+            }
+            else {
+                end = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(log n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses **Binary Search** to find the peak element in the mountain array. At each iteration, we calculate the middle index and check if it is the peak by comparing it with its adjacent elements. If the middle element is greater than both its neighbors, its index is returned. If the array is still increasing at the middle element, the peak must lie on the right side, so the search continues in the right half. Otherwise, the array is decreasing, indicating that the peak lies on the left side. By reducing the search space by half in each iteration, the algorithm efficiently finds the peak in **O(log n)** time.
