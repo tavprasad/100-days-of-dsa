@@ -40,9 +40,12 @@ Each day's folder contains:
 | 5 | ✅ |
 | 6 | ✅ |
 | 7 | ✅ |
+| 8 | ✅ |
 
 🎯 Topics Covered
 - Arrays
+- Two pointer approach
+- Binary Search
 
 
 ⭐ Note
