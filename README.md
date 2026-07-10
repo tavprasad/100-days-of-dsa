@@ -41,6 +41,7 @@ Each day's folder contains:
 | 6 | ✅ |
 | 7 | ✅ |
 | 8 | ✅ |
+| 9 | ✅ |
 
 🎯 Topics Covered
 - Arrays
