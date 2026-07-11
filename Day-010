@@ -1,0 +1,42 @@
+# Day 10 - Maximum Average Subarray I
+
+## Problem Statement
+You are given an integer array `nums` consisting of `n` elements and an integer `k`.
+
+Find a contiguous subarray of length `k` that has the maximum average value and return this value. Any answer with a calculation error less than `10⁻⁵` will be accepted.
+
+## Code
+
+class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        long long sum = 0;
+
+        for (int i = 0; i < k; i++) {
+            sum += nums[i];
+        }
+
+        long long maxSum = sum;
+
+        for (int i = k; i < nums.size(); i++) {
+            sum += nums[i];
+            sum -= nums[i - k];
+
+            maxSum = max(sum, maxSum);
+        }
+
+        return (double)maxSum / k;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique. First, the sum of the initial window of size `k` is calculated. Then, the window is moved one element at a time by adding the next element and removing the leftmost element from the current sum. After each slide, the maximum window sum is updated if the current sum is larger. Since every element is added and removed at most once, the algorithm runs in linear time. Finally, the maximum sum is divided by `k` to obtain the maximum average.
