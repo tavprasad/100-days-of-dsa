@@ -42,11 +42,13 @@ Each day's folder contains:
 | 7 | ✅ |
 | 8 | ✅ |
 | 9 | ✅ |
+| 10 | ✅ |
 
 🎯 Topics Covered
 - Arrays
 - Two pointer approach
 - Binary Search
+- Sliding Window
 
 
 ⭐ Note
