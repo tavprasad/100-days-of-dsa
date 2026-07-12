@@ -1,0 +1,44 @@
+# Day 11 - Longest Substring Without Repeating Characters
+
+## Problem Statement
+Given a string `s`, find the length of the longest substring without repeating characters.
+
+## Code
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+
+        unordered_set<char> st;
+
+        int left = 0;
+        int longest = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+
+            while (st.find(s[right]) != st.end()) {
+                st.erase(s[left]);
+                left++;
+            }
+
+            st.insert(s[right]);
+            longest = max(longest, right - left + 1);
+        }
+
+        return longest;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(min(n, m))**
+
+*`m` is the size of the character set (e.g., 128 for ASCII).*
+
+## Approach
+This solution uses the **Sliding Window** technique along with an **unordered_set** to maintain a window of unique characters. Two pointers, `left` and `right`, define the current substring. As the `right` pointer expands the window, if a duplicate character is encountered, the `left` pointer is moved forward while removing characters from the set until the duplicate is eliminated. The current character is then added to the set, and the length of the current valid substring is used to update the maximum length found so far. Since each character is inserted and removed from the set at most once, the algorithm runs in linear time.
