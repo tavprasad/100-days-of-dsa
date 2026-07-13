@@ -1,0 +1,44 @@
+# Day 12 - Max Consecutive Ones III
+
+## Problem Statement
+Given a binary array `nums` and an integer `k`, return the maximum number of consecutive `1`s in the array if you can flip at most `k` `0`s.
+
+## Code
+
+class Solution {
+public:
+    int longestOnes(vector<int>& nums, int k) {
+        int left = 0;
+        int ans = 0;
+        int zeroCount = 0;
+
+        for (int right = 0; right < nums.size(); right++) {
+            if (nums[right] == 0) {
+                zeroCount++;
+            }
+
+            while (zeroCount > k) {
+                if (nums[left] == 0) {
+                    zeroCount--;
+                }
+                left++;
+            }
+
+            ans = max(ans, right - left + 1);
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique. Two pointers, `left` and `right`, maintain a window containing at most `k` zeros. As the `right` pointer expands the window, the number of zeros (`zeroCount`) is updated. If the number of zeros exceeds `k`, the `left` pointer is moved forward until the window again contains at most `k` zeros. After each iteration, the length of the current valid window is compared with the maximum length found so far. Since each element is visited at most twice, the algorithm runs in linear time.
