@@ -1,0 +1,49 @@
+# Day 13 - Fruit Into Baskets
+
+## Problem Statement
+You are given an integer array `fruits` where `fruits[i]` represents the type of fruit produced by the `i`th tree.
+
+You have two baskets, and each basket can hold only one type of fruit, but an unlimited quantity of that type. Starting from any tree, you must pick exactly one fruit from every consecutive tree while moving to the right. Once you encounter a fruit that cannot fit into either basket, you must stop.
+
+Return the maximum number of fruits you can collect.
+
+## Code
+
+class Solution {
+public:
+    int totalFruit(vector<int>& fruits) {
+        int left = 0;
+        int ans = 0;
+        unordered_map<int, int> freq;
+
+        for (int right = 0; right < fruits.size(); right++) {
+            freq[fruits[right]]++;
+
+            while (freq.size() > 2) {
+                freq[fruits[left]]--;
+
+                if (freq[fruits[left]] == 0) {
+                    freq.erase(fruits[left]);
+                }
+
+                left++;
+            }
+
+            ans = max(ans, right - left + 1);
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique with an **unordered_map** to keep track of the frequency of fruit types within the current window. The `right` pointer expands the window by adding fruits, while the map stores the count of each fruit type. If the window contains more than two distinct fruit types, the `left` pointer is moved forward, decreasing the frequency of fruits and removing a fruit type from the map when its count becomes zero. At each step, the maximum valid window size is updated. Since each fruit is added and removed from the window at most once, the algorithm runs in linear time.
