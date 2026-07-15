@@ -1,0 +1,55 @@
+# Day 14 - Find All Anagrams in a String
+
+## Problem Statement
+Given two strings `s` and `p`, return an array containing all the starting indices of `p`'s anagrams in `s`. The answer can be returned in any order.
+
+## Code
+
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        int left = 0;
+        vector<int> ans;
+        vector<int> freq(128, 0);
+        int missing = p.size();
+
+        for (char c : p) {
+            freq[c]++;
+        }
+
+        for (int right = 0; right < s.size(); right++) {
+            if (freq[s[right]] > 0) {
+                missing--;
+            }
+
+            freq[s[right]]--;
+
+            if (right - left + 1 > p.size()) {
+                if (freq[s[left]] >= 0) {
+                    missing++;
+                }
+
+                freq[s[left]]++;
+                left++;
+            }
+
+            if (right - left + 1 == p.size() && missing == 0) {
+                ans.push_back(left);
+            }
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique along with a frequency array. Initially, the frequency of each character in string `p` is stored, and a variable `missing` keeps track of how many characters are still required to form an anagram. As the window expands over `s`, the frequency of the current character is updated, and `missing` is decreased whenever a required character is found. If the window size exceeds the length of `p`, the leftmost character is removed from the window, restoring its frequency and updating `missing` if necessary. Whenever the window size equals the length of `p` and `missing` becomes zero, the starting index of the current window is added to the answer since it represents an anagram of `p`.
