@@ -1,0 +1,41 @@
+# Day 17 - First Missing Positive
+
+## Problem Statement
+Given an unsorted integer array `nums`, return the smallest positive integer that is not present in the array.
+
+**Note:** The problem asks for an algorithm with **O(n)** time complexity and **O(1)** auxiliary space.
+
+## Code
+
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        unordered_set<int> st;
+
+        for (int i : nums) {
+            st.insert(i);
+        }
+
+        for (int i = 1; i <= nums.size(); i++) {
+            if (st.find(i) == st.end()) {
+                return i;
+            }
+        }
+
+        return nums.size() + 1;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses an **unordered_set** to store all the elements of the array, allowing constant-time lookups. After inserting every element into the set, we iterate from `1` to `n` (where `n` is the size of the array) and check whether each positive integer exists in the set. The first integer that is not found is returned as the smallest missing positive number. If all integers from `1` to `n` are present, then the answer is `n + 1`.
+
+> **Note:** Although this solution runs in **O(n)** time, it uses **O(n)** extra space because of the `unordered_set`. Therefore, it does **not** satisfy the problem's required **O(1)** auxiliary space constraint. However, it is still a valid solution and is accepted on platforms that allow multiple approaches.
