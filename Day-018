@@ -1,0 +1,37 @@
+# Day 18 - Check if the Middle Element Appears Exactly Once
+
+## Problem Statement
+You are given an integer array `nums` of odd length `n`.
+
+Return `true` if the middle element of `nums` appears exactly once in the array. Otherwise, return `false`.
+
+## Code
+
+class Solution {
+public:
+    bool isMiddleElementUnique(vector<int>& nums) {
+        int middle = nums[nums.size() / 2];
+        unordered_map<int, int> freq;
+
+        for (int i : nums) {
+            freq[i]++;
+        }
+
+        if (freq[middle] == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+};
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution first identifies the middle element of the array using its index `nums.size() / 2`. It then uses an **unordered_map** to count the frequency of every element in the array. After computing all frequencies, the frequency of the middle element is checked. If it appears exactly once, the function returns `true`; otherwise, it returns `false`.
