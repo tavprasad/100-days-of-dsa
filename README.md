@@ -50,6 +50,7 @@ Each day's folder contains:
 | 15 | ✅ |
 | 16 | ✅ |
 | 17 | ✅ |
+| 18 | ✅ |
 
 
 🎯 Topics Covered
