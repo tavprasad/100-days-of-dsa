@@ -1,0 +1,51 @@
+# Day 19 - Binary Subarrays With Sum
+
+## Problem Statement
+Given a binary array `nums` and an integer `goal`, return the number of non-empty subarrays whose sum is equal to `goal`.
+
+A subarray is a contiguous part of an array.
+
+## Code
+
+class Solution {
+public:
+    int atMost(vector<int>& nums, int goal) {
+
+        if (goal < 0)
+            return 0;
+
+        int left = 0;
+        int sum = 0;
+        int count = 0;
+
+        for (int right = 0; right < nums.size(); right++) {
+
+            sum += nums[right];
+
+            while (sum > goal) {
+                sum -= nums[left];
+                left++;
+            }
+
+            count += right - left + 1;
+        }
+
+        return count;
+    }
+
+    int numSubarraysWithSum(vector<int>& nums, int goal) {
+        return atMost(nums, goal) - atMost(nums, goal - 1);
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique along with the concept of **At Most**. Instead of directly counting subarrays whose sum is exactly equal to `goal`, it first calculates the number of subarrays with sum **at most** `goal` and the number of subarrays with sum **at most** `goal - 1`. The difference between these two counts gives the number of subarrays whose sum is exactly `goal`. The helper function `atMost()` maintains a sliding window whose sum never exceeds the given limit and counts all valid subarrays ending at each index. Since each element enters and leaves the window at most once, the algorithm runs in linear time.
