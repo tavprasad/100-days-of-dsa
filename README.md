@@ -65,3 +65,5 @@ Each day's folder contains:
 
 ⭐ Note
 This repository is updated daily as part of my 100-day consistency challenge.
+
+Author-Tavprasad Singh
