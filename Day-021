@@ -1,0 +1,46 @@
+# Day 21 - Pow(x, n)
+
+## Problem Statement
+Implement `pow(x, n)`, which calculates `x` raised to the power `n` (i.e., \(x^n\)).
+
+## Code
+
+class Solution {
+public:
+    double myPow(double x, int n) {
+        long long N = n;
+
+        if (N < 0) {
+            x = 1 / x;
+            N = -N;
+        }
+
+        return Power(x, N);
+    }
+
+    double Power(double x, long long n) {
+        if (n == 0) {
+            return 1.0;
+        }
+
+        double half = Power(x, n / 2);
+
+        if (n % 2 == 0) {
+            return half * half;
+        } else {
+            return half * half * x;
+        }
+    }
+};
+
+
+
+
+## Time Complexity
+**O(log n)**
+
+## Space Complexity
+**O(log n)**
+
+## Approach
+This solution uses **Binary Exponentiation (Exponentiation by Squaring)** to compute the power efficiently. If the exponent is negative, the base is inverted (`1/x`) and the exponent is converted to a positive value. The recursive function repeatedly divides the exponent by `2`, computes the result for the smaller exponent, and then squares it. If the exponent is odd, it multiplies the result by `x` once more. Since the exponent is halved at every recursive call, the algorithm runs in **O(log n)** time. The recursive calls contribute **O(log n)** space complexity due to the call stack.
