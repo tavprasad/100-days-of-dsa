@@ -33,7 +33,7 @@ Each day's folder contains:
 
 | Day | Status |
 |-----|--------|
-|  1 | ✅ |
+|  1 | ✅ |     | 21 | ✅ |
 |  2 | ✅ |
 |  3 | ✅ |
 |  4 | ✅ |
