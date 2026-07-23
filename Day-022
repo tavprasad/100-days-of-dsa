@@ -1,0 +1,70 @@
+# Day 22 - Minimum Window Substring
+
+## Problem Statement
+Given two strings `s` and `t` of lengths `m` and `n` respectively, return the minimum window substring of `s` such that every character in `t` (including duplicates) is included in the window. If there is no such substring, return an empty string `""`.
+
+The test cases are generated such that the answer is unique.
+
+## Code
+
+class Solution {
+public:
+    string minWindow(string s, string t) {
+        if (s.length() < t.length()) {
+            return "";
+        }
+
+        vector<int> freq(128, 0);
+
+        for (char c : t) {
+            freq[c]++;
+        }
+
+        int left = 0;
+        int start = 0;
+        int missing = t.size();
+        int minLen = INT_MAX;
+
+        for (int right = 0; right < s.size(); right++) {
+            if (freq[s[right]] > 0) {
+                missing--;
+            }
+
+            freq[s[right]]--;
+
+            while (missing == 0) {
+                if (right - left + 1 < minLen) {
+                    minLen = right - left + 1;
+                    start = left;
+                }
+
+                freq[s[left]]++;
+
+                if (freq[s[left]] > 0) {
+                    missing++;
+                }
+
+                left++;
+            }
+        }
+
+        if (minLen == INT_MAX) {
+            return "";
+        } else {
+            return s.substr(start, minLen);
+        }
+    }
+};
+
+
+
+
+## Time Complexity
+**O(m + n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique with a frequency array to find the smallest valid window. First, the frequency of every character in `t` is stored, and a variable `missing` keeps track of how many required characters are still needed. As the `right` pointer expands the window, the frequency array is updated, and `missing` is decreased whenever a required character is included. Once all required characters are present (`missing == 0`), the window is shrunk from the left to remove unnecessary characters while maintaining validity. During this process, the smallest valid window is recorded. If no valid window exists, an empty string is returned; otherwise, the minimum window substring is returned.
+
