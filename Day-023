@@ -39,3 +39,5 @@ public:
 ## Space Complexity
 **O(1)**
 
+## Approach
+This solution uses **Binary Search** to locate a peak element efficiently. At each iteration, the middle element is compared with its next element. If `nums[mid]` is smaller than `nums[mid + 1]`, it means the array is ascending at that point, so a peak must exist on the right side, and the search continues there. Otherwise, the peak lies on the left side (including the current middle element), so the search space is reduced accordingly. The process continues until both pointers meet, and that index represents a peak element. Since the search space is halved in every iteration, the algorithm runs in **O(log n)** time.
