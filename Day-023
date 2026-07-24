@@ -1,0 +1,41 @@
+# Day 23 - Find Peak Element
+
+## Problem Statement
+A peak element is an element that is strictly greater than its neighbors.
+
+Given a 0-indexed integer array `nums`, find a peak element and return its index. If the array contains multiple peaks, return the index of any one of them.
+
+You may assume that `nums[-1] = nums[n] = -∞`, meaning the elements outside the array are considered smaller than any element inside the array.
+
+You must write an algorithm that runs in **O(log n)** time.
+
+## Code
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+
+        int st = 0;
+        int end = nums.size() - 1;
+
+        while (st < end) {
+            int mid = st + (end - st) / 2;
+
+            if (nums[mid] < nums[mid + 1])
+                st = mid + 1;
+            else
+                end = mid;
+        }
+
+        return st;
+    }
+};
+
+
+
+## Time Complexity
+**O(log n)**
+
+## Space Complexity
+**O(1)**
+
