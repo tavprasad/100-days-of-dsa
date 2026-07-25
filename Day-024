@@ -42,3 +42,6 @@ public:
 
 ## Space Complexity
 **O(1)**
+
+## Approach
+This solution uses a **frequency array** of size `26` to count the occurrences of each lowercase English letter. First, the frequency of every character in `ransomNote` is incremented. Then, while traversing `magazine`, the corresponding frequency is decremented for each character found. After processing both strings, if any frequency remains positive, it means that `magazine` does not contain enough occurrences of that character to construct `ransomNote`, so the function returns `false`. Otherwise, all required characters are available, and the function returns `true`.
