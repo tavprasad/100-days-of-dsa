@@ -42,5 +42,10 @@ public:
 
 *`n` is the length of the string and `k` is the number of distinct characters.*
 
+
+## Approach
+This solution first uses an **unordered_map** to count the frequency of each character in the string. The character-frequency pairs are then stored in a vector, with the frequency placed first so that the vector can be sorted in descending order based on frequency. After sorting, the result string is constructed by appending each character as many times as its frequency. This produces a string where characters are arranged in decreasing order of their occurrence.
+
+
 ## Space Complexity
 **O(k)**
