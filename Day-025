@@ -1,0 +1,46 @@
+# Day 25 - Sort Characters By Frequency
+
+## Problem Statement
+Given a string `s`, sort it in decreasing order based on the frequency of its characters.
+
+The frequency of a character is the number of times it appears in the string. If there are multiple valid answers, return any one of them.
+
+## Code
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        unordered_map<char, int> m;
+
+        for (char c : s) {
+            m[c]++;
+        }
+
+        vector<pair<int, char>> p;
+
+        for (auto i : m) {
+            p.push_back({i.second, i.first});
+        }
+
+        sort(p.rbegin(), p.rend());
+
+        string ans = "";
+
+        for (auto &x : p) {
+            ans += string(x.first, x.second);
+        }
+
+        return ans;
+    }
+};
+
+
+
+
+## Time Complexity
+**O(n + k log k)**
+
+*`n` is the length of the string and `k` is the number of distinct characters.*
+
+## Space Complexity
+**O(k)**
