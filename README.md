@@ -146,6 +146,7 @@ Each day's folder contains:
 - Two pointer approach
 - Binary Search
 - Sliding Window
+- HashMap
 
 
 ⭐ Note
