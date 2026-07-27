@@ -1,0 +1,33 @@
+# Day 26 - Contiguous Array
+
+## Problem Statement
+Given a binary array `nums`, return the maximum length of a contiguous subarray containing an equal number of `0`s and `1`s.
+
+## Code
+
+class Solution {
+public:
+    int findMaxLength(vector<int>& nums) {
+        unordered_map<int, int> m;
+        m[0] = -1;
+
+        int sum = 0;
+        int maxlen = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 0) {
+                sum -= 1;
+            } else {
+                sum += 1;
+            }
+
+            if (m.find(sum) != m.end()) {
+                maxlen = max(maxlen, i - m[sum]);
+            } else {
+                m[sum] = i;
+            }
+        }
+
+        return maxlen;
+    }
+};
