@@ -147,6 +147,7 @@ Each day's folder contains:
 - Binary Search
 - Sliding Window
 - HashMap
+- Prefix Sum
 
 
 ⭐ Note
