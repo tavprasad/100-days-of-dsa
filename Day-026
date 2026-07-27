@@ -31,3 +31,15 @@ public:
         return maxlen;
     }
 };
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses the **Prefix Sum** technique along with an **unordered_map**. Each `0` is treated as `-1` and each `1` as `+1`. As we traverse the array, we maintain a running sum. If the same prefix sum is encountered again, it means the subarray between the two indices has an equal number of `0`s and `1`s because their contributions cancel out. The unordered map stores the first occurrence of each prefix sum, allowing the maximum valid subarray length to be calculated efficiently. The map is initialized with `0 → -1` to correctly handle subarrays that start from index `0`.
+
