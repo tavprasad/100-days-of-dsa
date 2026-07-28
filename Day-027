@@ -20,3 +20,14 @@ public:
         return isPowerOfFour(n / 4);
     }
 };
+
+
+
+## Time Complexity
+**O(log₄ n)**
+
+## Space Complexity
+**O(log₄ n)**
+
+## Approach
+This solution uses **recursion** to repeatedly divide the given number by `4`. If the number becomes `1`, it means the original number can be expressed as a power of `4`, so the function returns `true`. If the number is non-positive or is not divisible by `4`, it cannot be a power of `4`, and the function returns `false`. Since the number is divided by `4` in every recursive call, the recursion depth is **log₄ n**, resulting in **O(log₄ n)** time and space complexity.
