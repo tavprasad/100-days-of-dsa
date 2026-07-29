@@ -1,0 +1,46 @@
+# Day 28 - Find the First Stable Index
+
+## Problem Statement
+You are given an integer array `nums` of length `n` and an integer `k`.
+
+For each index `i`, define its instability score as:
+
+- `max(nums[0..i]) - min(nums[i..n-1])`
+
+where:
+- `max(nums[0..i])` is the maximum element from index `0` to `i`.
+- `min(nums[i..n-1])` is the minimum element from index `i` to `n-1`.
+
+An index is considered **stable** if its instability score is less than or equal to `k`.
+
+Return the smallest stable index. If no such index exists, return `-1`.
+
+## Code
+
+class Solution {
+public:
+    int firstStableIndex(vector<int>& nums, int k) {
+        int n = nums.size();
+
+        vector<int> suffixMin(n);
+        suffixMin[n - 1] = nums[n - 1];
+
+        for (int i = n - 2; i >= 0; i--) {
+            suffixMin[i] = min(nums[i], suffixMin[i + 1]);
+        }
+
+        int prefixMax = INT_MIN;
+
+        for (int i = 0; i < n; i++) {
+            prefixMax = max(prefixMax, nums[i]);
+
+            int score = prefixMax - suffixMin[i];
+
+            if (score <= k) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+};
