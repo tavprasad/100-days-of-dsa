@@ -44,3 +44,16 @@ public:
         return -1;
     }
 };
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses the **Prefix Maximum** and **Suffix Minimum** technique. First, a `suffixMin` array is built where each element stores the minimum value from the current index to the end of the array. Then, the array is traversed from left to right while maintaining a running `prefixMax`, which represents the maximum value from the beginning of the array up to the current index. For each index, the instability score is calculated as `prefixMax - suffixMin[i]`. The first index whose score is less than or equal to `k` is returned as the smallest stable index. If no such index exists after the traversal, the function returns `-1`.
+
