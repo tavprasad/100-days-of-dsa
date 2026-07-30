@@ -32,3 +32,14 @@ public:
         return count;
     }
 };
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Sliding Window** technique. First, the sum of the initial window of size `k` is calculated. If the average of this window is greater than or equal to `threshold`, the count is incremented. The window is then slid one position at a time by adding the new element entering the window and removing the element leaving it. After updating the sum, the average of the current window is checked, and the count is updated if it satisfies the condition. Since each element is processed only once, the algorithm runs in linear time while using constant extra space.
