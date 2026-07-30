@@ -1,0 +1,36 @@
+# Day 30 - Length of Longest Good Subarray
+
+## Problem Statement
+You are given an integer array `nums` and an integer `k`.
+
+The frequency of an element is the number of times it appears in the array.
+
+A subarray is considered **good** if the frequency of every element in it is less than or equal to `k`.
+
+Return the length of the longest good subarray.
+
+A subarray is a contiguous non-empty sequence of elements within an array.
+
+## Code
+
+```cpp
+class Solution {
+public:
+    int maxSubarrayLength(vector<int>& nums, int k) {
+        unordered_map<int, int> m;
+        int left = 0, ans = 0;
+
+        for (int right = 0; right < nums.size(); right++) {
+            m[nums[right]]++;
+
+            while (m[nums[right]] > k) {
+                m[nums[left]]--;
+                left++;
+            }
+
+            ans = max(ans, right - left + 1);
+        }
+
+        return ans;
+    }
+};
