@@ -34,3 +34,15 @@ public:
     }
 };
 
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses the **Sliding Window** technique along with an **unordered_map** to maintain the frequency of elements within the current window. As the `right` pointer expands the window, the frequency of the current element is increased. If the frequency of that element exceeds `k`, the window is shrunk from the left by decrementing the frequencies of elements until the condition is satisfied again. After each valid window is formed, its length is compared with the maximum length found so far. Since each element enters and leaves the window at most once, the algorithm runs in linear time.
+
+
