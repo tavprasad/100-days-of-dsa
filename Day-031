@@ -32,3 +32,15 @@ public:
     }
 };
 
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses an **unordered_set** to achieve constant-time lookups. All elements are first inserted into the set. Then, each element is checked to determine whether it is the start of a consecutive sequence by verifying that `num - 1` is not present in the set. If it is the start, the algorithm counts the length of the consecutive sequence by repeatedly checking for the next integer (`currNum + 1`). The maximum sequence length encountered during this process is stored and returned. Since each element is visited at most once as part of a sequence, the overall time complexity is **O(n)**.
+
+
