@@ -142,6 +142,7 @@ Each day's folder contains:
 
 🎯 Topics Covered
 - Arrays
+- 2D Arrays
 - Strings
 - Two pointer approach
 - Binary Search
