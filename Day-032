@@ -57,3 +57,16 @@ public:
         return false;
     }
 };
+
+
+
+## Time Complexity
+**O(log m + log n)**
+
+> This is equivalent to **O(log(m × n))**, since `log(m × n) = log m + log n`.
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution applies **Binary Search** twice. First, a binary search is performed on the rows to identify the only row that could possibly contain the target by comparing it with the first and last elements of each row. Once the correct row is found, a second binary search is performed within that row to locate the target. If the target is found, the function returns `true`; otherwise, it returns `false`. Since both searches are binary searches, the overall time complexity is **O(log m + log n)** with constant extra space.
