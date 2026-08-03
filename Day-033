@@ -53,3 +53,16 @@ public:
     }
 };
 
+
+
+## Time Complexity
+**O(m × n)**
+
+## Space Complexity
+**O(1)** (excluding the output array)
+
+> The returned vector `ans` stores the required output and is not counted as auxiliary space.
+
+## Approach
+This solution uses the **Boundary Traversal** technique. Four boundaries (`srow`, `erow`, `scol`, and `ecol`) define the current layer of the matrix. In each iteration, the algorithm traverses the **top row**, **right column**, **bottom row**, and **left column** in sequence, adding each element to the answer. Before traversing the bottom row and left column, boundary checks are performed to avoid visiting the same row or column twice in matrices with a single row or column. After completing one layer, all four boundaries are shrunk inward, and the process repeats until every element has been visited.
+
