@@ -1,1 +1,55 @@
+# Day 33 - Spiral Matrix
+
+## Problem Statement
+Given an `m × n` matrix, return all elements of the matrix in **spiral order**.
+
+## Code
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        int srow = 0, erow = m - 1;
+        int scol = 0, ecol = n - 1;
+
+        vector<int> ans;
+
+        while (srow <= erow && scol <= ecol) {
+
+            // Top row
+            for (int i = scol; i <= ecol; i++) {
+                ans.push_back(matrix[srow][i]);
+            }
+
+            // Right column
+            for (int j = srow + 1; j <= erow; j++) {
+                ans.push_back(matrix[j][ecol]);
+            }
+
+            // Bottom row
+            if (srow < erow) {
+                for (int i = ecol - 1; i >= scol; i--) {
+                    ans.push_back(matrix[erow][i]);
+                }
+            }
+
+            // Left column
+            if (scol < ecol) {
+                for (int j = erow - 1; j > srow; j--) {
+                    ans.push_back(matrix[j][scol]);
+                }
+            }
+
+            // Shrink boundaries
+            srow++;
+            erow--;
+            scol++;
+            ecol--;
+        }
+
+        return ans;
+    }
+};
 
