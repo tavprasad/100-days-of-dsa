@@ -9,7 +9,6 @@ The first `k` elements of `nums` should contain the unique elements in sorted or
 
 ## Code
 
-```cpp
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
@@ -31,4 +30,15 @@ public:
         return i + 1;
     }
 };
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses the **Two Pointers** technique. Pointer `i` keeps track of the position of the last unique element, while pointer `j` traverses the array from left to right. Whenever `nums[j]` is different from `nums[i]`, a new unique element is found. The `i` pointer is advanced, and the new unique element is placed at index `i`. After processing the entire array, the first `i + 1` elements contain all the unique values in sorted order, and `i + 1` is returned as the number of unique elements.
 
