@@ -9,7 +9,6 @@ You must solve the problem **without modifying the array** and using **only cons
 
 ## Code
 
-```cpp
 class Solution {
 public:
     int findDuplicate(vector<int>& arr) {
@@ -31,3 +30,14 @@ public:
     }
 };
 
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses **Floyd's Cycle Detection Algorithm (Tortoise and Hare)**. The array is treated as a linked list where each value represents the index of the next node. Since one number is duplicated, a cycle is formed in this linked list. In the first phase, two pointers (`slow` and `fast`) move through the array at different speeds until they meet inside the cycle. In the second phase, one pointer is reset to the beginning, and both pointers move one step at a time. The point where they meet again is the duplicate number, which is also the entrance to the cycle. This approach satisfies the required **O(n)** time complexity while using **O(1)** extra space.
