@@ -1,1 +1,33 @@
+# Day 35 - Find the Duplicate Number
+
+## Problem Statement
+Given an integer array `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive.
+
+There is only one repeated number in `nums`. Return this repeated number.
+
+You must solve the problem **without modifying the array** and using **only constant extra space**.
+
+## Code
+
+```cpp
+class Solution {
+public:
+    int findDuplicate(vector<int>& arr) {
+        int slow = arr[0], fast = arr[0];
+
+        do {
+            slow = arr[slow];
+            fast = arr[arr[fast]];
+        } while (slow != fast);
+
+        slow = arr[0];
+
+        while (slow != fast) {
+            slow = arr[slow];
+            fast = arr[fast];
+        }
+
+        return slow;
+    }
+};
 
