@@ -46,3 +46,20 @@ public:
     }
 };
 
+
+
+
+## Time Complexity
+**O(n²)**
+
+## Space Complexity
+**O(n²)**
+
+## Approach
+This solution uses an **unordered_set** to detect the repeated value while traversing the matrix. As each element is visited, its value is added to the running sum `actualSum`. If an element is already present in the set, it is identified as the repeated number `a`; otherwise, it is inserted into the set. After traversing the matrix, the expected sum of all integers from `1` to `n²` is computed using the arithmetic sum formula. Since the actual sum contains one extra occurrence of `a` and is missing `b`, the missing value is calculated using:
+
+missing =expectedSum + repeated - actualSum
+
+
+Finally, the repeated and missing values are returned as the answer.
+
