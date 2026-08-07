@@ -1,1 +1,33 @@
+# Day 37 - Subarray Sum Equals K
+
+## Problem Statement
+Given an integer array `nums` and an integer `k`, return the total number of contiguous subarrays whose sum is equal to `k`.
+
+A subarray is a contiguous non-empty sequence of elements within an array.
+
+## Code
+
+class Solution {
+public:
+    int subarraySum(vector<int>& arr, int k) {
+        unordered_map<int, int> mp;
+
+        int prefix = 0;
+        int count = 0;
+
+        mp[0] = 1;
+
+        for (int i = 0; i < arr.size(); i++) {
+            prefix += arr[i];
+
+            if (mp.find(prefix - k) != mp.end()) {
+                count += mp[prefix - k];
+            }
+
+            mp[prefix]++;
+        }
+
+        return count;
+    }
+};
 
