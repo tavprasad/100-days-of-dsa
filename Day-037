@@ -31,3 +31,14 @@ public:
     }
 };
 
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses the **Prefix Sum** technique along with an **unordered_map**. As the array is traversed, a running prefix sum is maintained. For each position, if there exists a previous prefix sum equal to `currentPrefix - k`, then the subarray between those two positions has a sum of `k`. The unordered map stores the frequency of each prefix sum encountered so far, allowing multiple valid subarrays ending at the current index to be counted efficiently. The map is initialized with `0 → 1` to account for subarrays that start from index `0`. This approach processes each element only once, resulting in linear time complexity.
+
