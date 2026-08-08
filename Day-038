@@ -1,1 +1,29 @@
+# Day 38 - Maximum Ascending Subarray Sum
 
+## Problem Statement
+Given an array of positive integers `nums`, return the maximum possible sum of a **strictly increasing** subarray.
+
+A subarray is a contiguous sequence of elements within the array.
+
+## Code
+
+class Solution {
+public:
+    int maxAscendingSum(vector<int>& nums) {
+        int currSum = nums[0], maxSum = nums[0];
+        int n = nums.size();
+
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > nums[i - 1]) {
+                currSum += nums[i];
+            }
+            else {
+                currSum = nums[i];
+            }
+
+            maxSum = max(currSum, maxSum);
+        }
+
+        return maxSum;
+    }
+};
