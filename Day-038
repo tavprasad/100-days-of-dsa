@@ -27,3 +27,15 @@ public:
         return maxSum;
     }
 };
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution traverses the array while maintaining the sum of the current **strictly increasing** subarray. If the current element is greater than the previous element, it extends the current increasing subarray, and its value is added to `currSum`. Otherwise, the increasing sequence is broken, so `currSum` is reset to the current element. After processing each element, `maxSum` is updated to store the maximum ascending subarray sum found so far. Since the array is traversed only once and only a few variables are used, the algorithm runs in linear time with constant extra space.
