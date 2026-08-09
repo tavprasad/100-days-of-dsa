@@ -54,3 +54,15 @@ public:
         return ans;
     }
 };
+
+
+
+
+## Time Complexity
+**O(log n)**
+
+## Space Complexity
+**O(1)**
+
+## Approach
+This solution uses **Binary Search** twice. The first binary search finds the **first occurrence** of the target by continuing the search on the left half even after finding the target. The second binary search finds the **last occurrence** by continuing the search on the right half after finding the target. The indices of the first and last occurrences are stored in the answer vector. If the target is not found, the default values `[-1, -1]` are returned. Since each binary search runs in **O(log n)** time, the overall time complexity remains **O(log n)**.
