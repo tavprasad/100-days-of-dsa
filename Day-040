@@ -52,3 +52,18 @@ public:
     }
 };
 
+
+
+
+## Time Complexity
+**O(n²)**
+
+## Space Complexity
+**O(1)** (excluding the output list)
+
+> The space required to store the resulting triplets is not counted as auxiliary space.
+
+## Approach
+This solution first sorts the array, allowing the **Two Pointers** technique to be applied efficiently. Each element is considered as the first element of a potential triplet, while two pointers (`j` and `k`) search for the remaining two elements whose sum equals the negative of the current element. If the current sum is too small, the left pointer is moved forward; if it is too large, the right pointer is moved backward. When a valid triplet is found, it is added to the answer, and duplicate values are skipped to ensure that only unique triplets are included. The outer loop also skips duplicate starting elements. Sorting takes **O(n log n)** time, and the two-pointer search for each element results in an overall time complexity of **O(n²)**.
+
+
