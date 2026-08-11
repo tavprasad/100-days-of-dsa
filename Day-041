@@ -58,3 +58,18 @@ public:
     }
 };
 
+
+
+
+## Time Complexity
+**O(n³)**
+
+## Space Complexity
+**O(1)** (excluding the output list)
+
+> The space required to store the resulting quadruplets is not counted as auxiliary space.
+
+## Approach
+This solution first sorts the array so that the **Two Pointers** technique can be applied efficiently. Two nested loops fix the first two elements of the quadruplet, while two pointers (`k` and `l`) search for the remaining two elements whose sum equals the target. If the current sum is smaller than the target, the left pointer is moved forward; if it is larger, the right pointer is moved backward. When a valid quadruplet is found, it is added to the answer, and duplicate values are skipped for all pointers to ensure only unique quadruplets are returned. A `long long` is used while calculating the sum to prevent integer overflow when adding four integers.
+
+
