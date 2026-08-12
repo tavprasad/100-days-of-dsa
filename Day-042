@@ -32,3 +32,23 @@ public:
         return ans;
     }
 };
+
+
+
+
+## Time Complexity
+**O(n)**
+
+## Space Complexity
+**O(n)**
+
+## Approach
+This solution uses the **Prefix Maximum and Suffix Maximum** technique. Two arrays are created:
+- `lmax[i]` stores the maximum height from the beginning of the array up to index `i`.
+- `rmax[i]` stores the maximum height from the end of the array down to index `i`.
+
+For every index, the amount of water that can be trapped is determined by the smaller of the left and right maximum heights minus the height of the current bar:
+
+Water at i = min(lmax[i], rmax[i]) - height[i]
+
+The trapped water at each position is added to the final answer. Since each array is traversed only once, the algorithm runs in **O(n)** time while using **O(n)** extra space.
