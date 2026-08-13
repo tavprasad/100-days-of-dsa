@@ -36,3 +36,17 @@ public:
         }
     }
 };
+
+
+
+
+Time Complexity:
+O(n + m)
+
+Where n and m are the lengths of list1 and list2.
+
+Space Complexity:
+O(n + m) due to the recursive call stack.
+
+Approach:
+This solution uses recursion to merge the two sorted linked lists. First, it handles the case where either list is empty by returning the other list. Then, it compares the values at the heads of both lists. The smaller value becomes the next node of the merged list, and the function recursively merges the remaining nodes. This continues until one of the lists becomes empty, at which point the remaining list is directly attached. The original nodes are reused, so no new linked-list nodes are created.
