@@ -35,3 +35,15 @@ public:
         return head;
     }
 };
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+Since the linked list is already sorted, duplicate values will always be next to each other. We use a pointer curr to traverse the list. If curr and curr->next contain the same value, we skip the duplicate node by changing curr->next to curr->next->next. Otherwise, we move curr to the next node. This continues until the end of the list is reached. No new nodes are created, so the solution uses constant extra space.
