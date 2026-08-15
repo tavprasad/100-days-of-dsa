@@ -54,3 +54,15 @@ public:
         return head;
     }
 };
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+This solution first traverses the linked list to calculate its total length count. If count == n, the node to remove is the head, so the head is moved to the next node. Otherwise, the solution traverses the list again until it reaches the node immediately before the node that needs to be removed. The target node is then deleted by changing the previous node's next pointer to skip over it. Since the list is traversed at most twice and only a few pointers are used, the time complexity is O(n) and the auxiliary space complexity is O(1).
