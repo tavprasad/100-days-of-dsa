@@ -62,3 +62,15 @@ public:
         return head;
     }
 };
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+This solution uses three pointers to swap adjacent nodes without changing their values. first points to the first node of the current pair, sec points to the second node, and prev points to the last node of the previously processed pair. First, sec is connected to first, effectively swapping the pair, and first is then connected to the remaining list through third. The previous pair is connected to the newly swapped pair using prev. For the first pair, head is updated because the second node becomes the new head. The pointers are then moved to the next pair, and the process continues until there are no more complete pairs.
