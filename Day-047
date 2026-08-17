@@ -1,1 +1,48 @@
+Day 47 - Rotate List
 
+Problem Statement:
+Given the head of a linked list, rotate the list to the right by k places.
+
+Code
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (head == NULL || head->next == NULL || k == 0) {
+            return head;
+        }
+
+
+        int n = 1;
+        ListNode* temp = head;
+
+
+        while (temp->next != NULL) {
+            temp = temp->next;
+            n++;
+        }
+
+
+        temp->next = head;
+
+
+        k = k % n;
+        int step = n - k;
+
+
+        ListNode* newTail = head;
+
+
+        for (int i = 1; i < step; i++) {
+            newTail = newTail->next;
+        }
+
+
+        ListNode* newHead = newTail->next;
+
+
+        newTail->next = NULL;
+
+
+        return newHead;
+    }
+};
