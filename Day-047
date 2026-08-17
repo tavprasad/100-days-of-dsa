@@ -46,3 +46,15 @@ public:
         return newHead;
     }
 };
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+First, the length n of the linked list is calculated while reaching the last node. The last node is then connected to the head, temporarily converting the linked list into a circular linked list. Since rotating by n positions produces the same list, k is reduced using k = k % n. The new tail will be at position n - k, so we move newTail to that position. The node after newTail becomes the new head, and finally, the circular connection is broken by setting newTail->next = NULL. This rotates the list in O(n) time using O(1) extra space.
