@@ -50,3 +50,18 @@ public:
         return smallDummy->next;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1) auxiliary space
+
+Only a constant number of pointers are used. The two dummy nodes are constant extra space.
+
+Approach:
+This solution maintains two separate linked lists: one for nodes with values less than x and another for nodes with values greater than or equal to x. Two dummy nodes, smallDummy and largeDummy, make it easier to build both lists. As we traverse the original list, each node is attached to the appropriate partition while preserving its original relative order. After processing all nodes, the end of the larger partition is set to NULL to avoid creating a cycle, and the smaller partition is connected to the larger partition. Finally, smallDummy->next is returned as the head of the partitioned list.
