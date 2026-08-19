@@ -36,3 +36,15 @@ public:
     }
 };
 
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+This solution uses the Iterative Three-Pointer technique. curr points to the current node, prev stores the previous node, and next temporarily stores the next node so that the remaining list is not lost. For each node, its next pointer is reversed to point toward prev. Then all three pointers are moved forward. When curr becomes NULL, prev points to the new head of the reversed linked list, so it is returned.
+
