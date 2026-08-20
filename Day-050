@@ -48,3 +48,15 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+This solution uses in-place linked list reversal. A dummy node is created before the head to handle cases where left = 1. First, prev is moved to the node immediately before position left. The nodes from left to right are then reversed using the standard three-pointer technique. leftNode stores the original first node of the section because after reversal it becomes the last node of that section. After reversing, prev->next is connected to the new beginning of the reversed section, and leftNode->next is connected to the remaining part of the list. No new list nodes are created, so the reversal is performed in-place.
