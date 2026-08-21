@@ -1,1 +1,46 @@
+Day 51 - Flatten Binary Tree to Linked List
 
+Problem Statement:
+Given the root of a binary tree, flatten the tree into a "linked list":
+
+The linked list must use the same TreeNode class.
+The right pointer should point to the next node in the list.
+The left pointer should always be null.
+The linked list should follow the same order as a pre-order traversal of the binary tree.
+Code
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right)
+ *         : val(x), left(left), right(right) {}
+ * };
+ */
+
+
+class Solution {
+public:
+    TreeNode* nextRight = NULL;
+
+
+    void flatten(TreeNode* root) {
+        if (root == NULL) {
+            return;
+        }
+
+
+        flatten(root->right);
+        flatten(root->left);
+
+
+        root->left = NULL;
+        root->right = nextRight;
+
+
+        nextRight = root;
+    }
+};
