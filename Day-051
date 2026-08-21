@@ -44,3 +44,15 @@ public:
         nextRight = root;
     }
 };
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(h) due to the recursion stack, where h is the height of the tree.
+
+Approach:
+This solution uses reverse pre-order traversal. Normal pre-order traversal is root → left → right, so the reverse order is right → left → root. The recursive calls first flatten the right subtree and then the left subtree. nextRight keeps track of the previously processed node, which should become the current node's right child. For every node, its left pointer is set to NULL, its right pointer is connected to nextRight, and then nextRight is updated to the current node. Processing the tree in reverse pre-order ensures that when the recursion finishes, the right pointers form the required normal pre-order linked list.
