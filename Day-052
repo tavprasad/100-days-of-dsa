@@ -1,1 +1,61 @@
+Day 52 - Copy List with Random Pointer
 
+Problem Statement:
+A linked list of length n is given where each node contains a next pointer and an additional random pointer. The random pointer can point to any node in the list or null.
+
+Construct a deep copy of the linked list using exactly n brand new nodes. The next and random pointers of the copied nodes must point only to nodes in the copied list.
+
+Code
+
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if (head == NULL) return NULL;
+
+
+        unordered_map<Node*, Node*> m;
+
+
+        // Create head
+        Node* newhead = new Node(head->val);
+        m[head] = newhead;
+
+
+        Node* oldTemp = head->next;
+        Node* newTemp = newhead;
+
+
+        // First pass: create nodes and next pointers
+        while (oldTemp != NULL) {
+            Node* copyNode = new Node(oldTemp->val);
+            m[oldTemp] = copyNode;
+
+
+            newTemp->next = copyNode;
+            newTemp = newTemp->next;
+
+
+            oldTemp = oldTemp->next;
+        }
+
+
+        // Second pass: assign random pointers
+        oldTemp = head;
+        newTemp = newhead;
+
+
+        while (oldTemp != NULL) {
+            if (oldTemp->random != NULL)
+                newTemp->random = m[oldTemp->random];
+            else
+                newTemp->random = NULL;
+
+
+            oldTemp = oldTemp->next;
+            newTemp = newTemp->next;
+        }
+
+
+        return newhead;
+    }
+};
