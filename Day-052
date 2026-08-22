@@ -59,3 +59,16 @@ public:
         return newhead;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(n)
+
+Approach:
+This solution uses an unordered_map to maintain a mapping between each original node and its corresponding copied node. In the first pass, all new nodes are created and their next pointers are connected, while storing the mapping in the hash map. In the second pass, the random pointer of each copied node is assigned using the map. This ensures that every random pointer in the copied list points to a new copied node, never to an original node.
