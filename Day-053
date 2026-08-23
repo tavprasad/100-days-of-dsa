@@ -41,3 +41,14 @@ public:
     }
 };
 
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+This solution uses Floyd's Cycle Detection Algorithm, also known as the Tortoise and Hare algorithm. Two pointers are used: slow moves one node at a time, while fast moves two nodes at a time. If there is no cycle, fast will eventually reach NULL. If a cycle exists, fast will eventually meet slow inside the cycle. Therefore, if slow == fast, we return true; otherwise, after reaching the end of the list, we return false.
+
