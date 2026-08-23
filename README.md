@@ -150,6 +150,7 @@ Each day's folder contains:
 - Prefix Sum
 - Hash Map
 - Recursion
+- Linked list
 
 
 ⭐ Note
