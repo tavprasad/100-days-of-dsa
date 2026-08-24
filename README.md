@@ -151,6 +151,7 @@ Each day's folder contains:
 - Hash Map
 - Recursion
 - Linked list
+- Slow Fast pointer approach
 
 
 ⭐ Note
