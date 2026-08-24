@@ -74,3 +74,16 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+The solution works in three steps. First, the slow and fast pointers are used to find the middle of the linked list, and the list is divided into two halves. Second, the second half is reversed so that its nodes are available in the required Ln → Ln-1 → ... order. Finally, the two halves are merged alternately by taking one node from the first half and then one node from the reversed second half. All operations are performed by changing node pointers, without modifying any node values.
+
