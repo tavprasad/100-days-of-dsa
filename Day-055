@@ -116,3 +116,16 @@ public:
         m[key] = newNode;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(1) average for both get() and put().
+
+Space Complexity:
+O(capacity)
+
+Approach:
+The solution combines a doubly linked list with an unordered_map. The hash map provides O(1) average lookup of a key, while the doubly linked list maintains the order of usage. The node immediately after head is the most recently used node, while the node immediately before tail is the least recently used node. Whenever a key is accessed using get() or updated using put(), its node is removed and moved to the front. When the cache reaches its capacity and a new key is inserted, the node just before tail is removed because it is the least recently used.
