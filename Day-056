@@ -81,3 +81,16 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n log n)
+
+Space Complexity:
+O(log n) due to the recursion stack.
+
+Approach:
+This solution uses Merge Sort on the linked list. First, the slow and fast pointers are used to find the middle of the list and divide it into two halves. Each half is recursively sorted. Finally, the two sorted halves are merged using the merge() function. Since linked lists can be efficiently split and merged without shifting elements, Merge Sort is well suited for sorting a linked list.
+
