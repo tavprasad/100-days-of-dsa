@@ -45,3 +45,16 @@ public:
         return temp1;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(n + m)
+
+Space Complexity:
+O(1)
+
+Approach:
+Two pointers are used to traverse both linked lists. temp1 starts from headA and temp2 starts from headB. When a pointer reaches the end of its list, it switches to the head of the other list. This makes both pointers travel the same total distance: n + m. If the lists intersect, both pointers will eventually meet at the intersection node. If they do not intersect, both will eventually become NULL at the same time.
