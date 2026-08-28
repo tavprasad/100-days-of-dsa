@@ -41,3 +41,16 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+A dummy node is created before the head to handle cases where the head itself needs to be removed. curr starts at the dummy node and checks the next node. If curr->next->val equals val, that node is skipped by changing curr->next to curr->next->next. Otherwise, curr moves to the next node. This continues until the entire list is processed. Finally, dummy->next is returned as the new head.
+
