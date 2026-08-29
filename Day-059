@@ -67,3 +67,16 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+The solution first uses the slow and fast pointer technique to find the middle of the linked list. If the list has an odd number of nodes, slow is moved one extra position to skip the middle element. The second half of the list is then reversed in-place. Finally, the first half and the reversed second half are compared node by node. If any pair of values differs, the list is not a palindrome; otherwise, it is a palindrome.
+
