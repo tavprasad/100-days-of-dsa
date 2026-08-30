@@ -32,3 +32,16 @@ public:
         delete temp;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(1)
+
+Space Complexity:
+O(1)
+
+Approach:
+Since we do not have access to the previous node, we cannot directly remove the given node. Instead, we copy the value of the next node into the given node. Then, we skip the next node by changing node->next to node->next->next. Finally, the original next node is deleted from memory. This effectively removes the given node's value while keeping the remaining list in the correct order.
