@@ -50,3 +50,16 @@ public:
         return head;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+The solution maintains two separate chains using odd and even pointers. odd starts at the first node and even starts at the second node. During traversal, the next pointers are rearranged so that odd-indexed nodes are connected together and even-indexed nodes are connected together. evenhead stores the first even node so that the even list can be attached after the odd list at the end. The relative order within both groups is preserved.
