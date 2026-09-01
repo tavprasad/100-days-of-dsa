@@ -56,3 +56,24 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n²) in the worst case.
+
+Space Complexity:
+O(h) due to the recursion stack, where h is the maximum depth of nested child lists.
+
+Approach:
+We traverse the list using curr. Whenever curr has a child list:
+
+Save curr->next in next.
+Recursively flatten the child list.
+Connect the flattened child list after curr.
+Set curr->child = NULL.
+Move to the end of the flattened child list.
+Connect the previously saved next node after it.
+Update the prev pointers accordingly.
+
