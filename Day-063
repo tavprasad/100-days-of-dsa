@@ -69,3 +69,31 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(n/k) due to the recursion stack.
+
+Approach:
+The solution uses recursion + linked-list reversal.
+
+For every group:
+
+First check whether at least k nodes are available.
+If fewer than k nodes remain, return head without modifying them.
+
+Recursively process the remaining list first:
+
+prevNode = reverseKGroup(temp, k);
+Reverse the current k nodes using the standard three-pointer technique:
+temp → current node
+prevNode → previously processed node
+next → saves the next node
+During reversal, the last node of the current group is connected to the already-processed remaining groups.
+Return the new head of the reversed group.
+
