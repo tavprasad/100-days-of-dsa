@@ -72,3 +72,22 @@ public:
         return root;
     }
 };
+
+
+
+
+Time Complexity:
+O(n log n)
+
+Space Complexity:
+O(log n) due to the recursion stack.
+
+Approach:
+The key idea is to make the middle element of the sorted linked list the root of the BST.
+
+We use the slow and fast pointer technique:
+
+slow = slow->next;
+fast = fast->next->next;
+
+When fast reaches the end, slow points to the middle node.
