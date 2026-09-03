@@ -1,0 +1,74 @@
+Day 64 - Convert Sorted List to Binary Search Tree
+
+Problem Statement:
+Given the head of a singly linked list whose elements are sorted in ascending order, convert it into a height-balanced Binary Search Tree (BST).
+
+A height-balanced BST is a tree where the heights of the left and right subtrees of every node differ by at most 1.
+
+Code
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right)
+ *         : val(x), left(left), right(right) {}
+ * };
+ */
+
+
+class Solution {
+public:
+    TreeNode* sortedListToBST(ListNode* head) {
+        if (head == NULL) {
+            return NULL;
+        }
+
+
+        ListNode* slow = head;
+        ListNode* fast = head;
+        ListNode* prev = NULL;
+
+
+        // Find middle node
+        while (fast != NULL && fast->next != NULL) {
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+
+        // Middle becomes root
+        TreeNode* root = new TreeNode(slow->val);
+
+
+        // Left half
+        if (prev != NULL) {
+            prev->next = NULL;
+            root->left = sortedListToBST(head);
+        }
+
+
+        // Right half
+        root->right = sortedListToBST(slow->next);
+
+
+        return root;
+    }
+};
