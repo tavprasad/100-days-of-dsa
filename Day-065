@@ -47,3 +47,22 @@ public:
         return head;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+Approach:
+The solution uses the slow and fast pointer technique to find the middle node.
+
+slow moves one step at a time.
+fast moves two steps at a time.
+prev keeps track of the node immediately before slow.
+
+When fast reaches the end, slow points to the middle node.
