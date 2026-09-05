@@ -31,6 +31,28 @@ public:
             }
         }
 
-        return st.empty();
+        return st.empty()
     }
 };
+
+
+
+
+
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(n)
+
+Approach:
+This solution uses a stack because brackets follow the LIFO (Last In, First Out) principle.
+
+Push every opening bracket into the stack.
+For every closing bracket, first check whether the stack is empty.
+If the stack is not empty, compare the closing bracket with st.top().
+If they match, pop the opening bracket.
+If they don't match, return false.
+At the end, the stack must be empty for the string to be valid.
+
