@@ -1,1 +1,44 @@
+Day 67 - Evaluate Reverse Polish Notation
+
+Problem Statement:
+You are given an array of strings tokens representing an arithmetic expression in Reverse Polish Notation (RPN).
+Evaluate the expression and return the integer result.
+The valid operators are +, -, *, and /.
+
+Code:
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack<int> st;
+
+        for(auto ch : tokens) {
+
+            if(ch == "+" || ch == "-" || ch == "*" || ch == "/") {
+
+                int a = st.top();
+                st.pop();
+
+                int b = st.top();
+                st.pop();
+
+                if(ch == "+")
+                    st.push(b + a);
+
+                else if(ch == "-")
+                    st.push(b - a);
+
+                else if(ch == "*")
+                    st.push(b * a);
+
+                else
+                    st.push(b / a);
+            }
+            else {
+                st.push(stoi(ch));
+            }
+        }
+
+        return st.top();
+    }
+};
 
