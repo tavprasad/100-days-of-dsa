@@ -152,6 +152,7 @@ Each day's folder contains:
 - Recursion
 - Linked list
 - Slow Fast pointer approach
+- Stack
 
 
 ⭐ Note
