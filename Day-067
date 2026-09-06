@@ -42,3 +42,28 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n)
+
+Each token is processed exactly once.
+
+Space Complexity:
+O(n)
+
+The stack can contain up to n operands.
+
+Approach:
+This solution uses a stack to evaluate the Reverse Polish Notation expression.
+
+Traverse every token from left to right.
+If the token is a number, convert it from string to integer using stoi() and push it into the stack.
+If the token is an operator, take the top two elements from the stack.
+Store the first popped value in a and the second popped value in b.
+Perform b operator a.
+Push the result back into the stack.
+At the end, the stack contains only one value, which is the final answer.
+
