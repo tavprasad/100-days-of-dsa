@@ -1,1 +1,37 @@
+Day 68 - Min Stack
 
+Problem Statement:
+Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
+Each operation must have O(1) time complexity.
+
+Code:
+class MinStack {
+public:
+    stack<pair<int, int>> s;
+
+    MinStack() {
+        
+    }
+    
+    void push(int val) {
+        if(s.empty()) {
+            s.push({val, val});
+        }
+        else {
+            int minVal = min(val, s.top().second);
+            s.push({val, minVal});
+        }
+    }
+    
+    void pop() {
+        s.pop();
+    }
+    
+    int top() {
+        return s.top().first;
+    }
+    
+    int getMin() {
+        return s.top().second;
+    }
+};
