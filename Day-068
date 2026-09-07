@@ -35,3 +35,36 @@ public:
         return s.top().second;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(1) for push, pop, top, and getMin.
+
+Space Complexity:
+O(n)
+
+The stack stores n elements, and each element contains a pair of values.
+
+Approach:
+This solution uses a stack of pairs.
+Each pair stores:
+{value, minimum_so_far}
+
+For every element, we keep track of the minimum value from the bottom of the stack up to that element.
+When pushing a new value:
+If the stack is empty, both values are val.
+Otherwise, compare val with the current minimum s.top().second.
+Store the smaller value as the new minimum.
+Push {val, minVal} into the stack.
+
+For pop():
+Simply remove the top pair.
+
+For top():
+Return s.top().first, which contains the actual value.
+
+For getMin():
+Return s.top().second, which contains the minimum value so far.
