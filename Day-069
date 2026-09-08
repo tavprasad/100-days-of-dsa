@@ -43,3 +43,36 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+push() → O(n)
+pop() → O(1)
+top() → O(1)
+empty() → O(1)
+
+Space Complexity:
+O(n)
+
+The queues store all n elements.
+
+Approach:
+This solution uses two queues and keeps the newest element at the front of q1, so that it behaves like a stack.
+
+For push(x):
+Move all elements from q1 to q2.
+Push the new element x into q1.
+Move all elements from q2 back to q1.
+Now, x is at the front of q1.
+
+For pop():
+Remove and return the front element of q1.
+
+For top():
+Return the front element of q1 without removing it.
+
+For empty():
+Check whether q1 is empty.
+
