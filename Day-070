@@ -42,3 +42,36 @@ public:
         return s1.empty();
     }
 };
+
+
+
+
+
+Time Complexity:
+push() → O(n)
+pop() → O(1)
+peek() → O(1)
+empty() → O(1)
+
+Space Complexity:
+O(n)
+
+The two stacks together can store up to n elements.
+
+Approach:
+This solution uses two stacks and rearranges the elements during push() so that the oldest element is always at the top of s1.
+
+For push(x):
+Move all elements from s1 to s2.
+Push the new element x into s1.
+Move all elements from s2 back to s1.
+Now the oldest element is always at the top of s1.
+
+For pop():
+Remove and return the top element of s1.
+
+For peek():
+Return the top element of s1 without removing it.
+
+For empty():
+Check whether s1 is empty.
