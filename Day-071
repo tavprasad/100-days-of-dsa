@@ -1,1 +1,62 @@
+Day 71 - Decode String
+
+Problem Statement:
+Given an encoded string, return its decoded string.
+The encoding rule is k[encoded_string], where the string inside the brackets is repeated exactly k times. The encoded string may contain nested patterns.
+
+Code:
+class Solution {
+public:
+    string decodeString(string s) {
+
+        stack<int> nums;
+        stack<string> strs;
+
+        string curr = "";
+        int num = 0;
+
+        for(char ch : s) {
+
+            // Build the repeat number
+            if(isdigit(ch)) {
+                num = num * 10 + (ch - '0');
+            }
+
+            // Entering a new nested level
+            else if(ch == '[') {
+
+                nums.push(num);
+                strs.push(curr);
+
+                num = 0;
+                curr = "";
+            }
+
+            // Closing the current nested level
+            else if(ch == ']') {
+
+                int repeat = nums.top();
+                nums.pop();
+
+                string previous = strs.top();
+                strs.pop();
+
+                string temp = "";
+
+                for(int i = 0; i < repeat; i++) {
+                    temp += curr;
+                }
+
+                curr = previous + temp;
+            }
+
+            // Normal character
+            else {
+                curr += ch;
+            }
+        }
+
+        return curr;
+    }
+};
 
