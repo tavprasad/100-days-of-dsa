@@ -60,3 +60,26 @@ public:
     }
 };
 
+
+
+
+
+
+Time Complexity:
+O(n) approximately, where n represents the size of the input/output processing.
+
+More precisely, the work depends on the size of the decoded string because repeated strings have to be constructed.
+
+Space Complexity:
+O(n)
+
+The two stacks store repeat numbers and previous strings for nested brackets, and curr stores the decoded result.
+
+Approach:
+We use two stacks:
+nums → stores the repeat numbers.
+strs → stores the string that existed before entering the current [.
+curr → stores the string currently being constructed.
+num → builds a possibly multi-digit repeat number.
+
+
