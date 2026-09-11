@@ -31,3 +31,26 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n), because every element is pushed into and popped from the stack at most once.
+
+Space Complexity:
+O(n), for the stack.
+
+Approach:
+We traverse the array from right to left and use a stack.
+
+st → stores possible nums[k] values.
+second → stores the best possible nums[k] value for a 132 pattern.
+
+For a valid pattern:
+
+nums[i] < nums[k] < nums[j]
+
+When nums[i] > st.top(), we pop elements from the stack and update second. This means we have found a possible nums[j] that is greater than nums[k].
+
+
