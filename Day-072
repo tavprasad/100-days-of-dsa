@@ -1,1 +1,33 @@
+Day 72 - 132 Pattern
+
+Problem Statement:
+Given an array of n integers nums, a 132 pattern is a subsequence nums[i], nums[j], nums[k] such that i < j < k and nums[i] < nums[k] < nums[j]. Return true if a 132 pattern exists, otherwise return false.
+
+Code:
+
+class Solution {
+public:
+    bool find132pattern(vector<int>& nums) {
+        stack<int> st;
+        int n = nums.size();
+
+        int second = INT_MIN;
+
+        for(int i = n - 1; i >= 0; i--) {
+
+            if(nums[i] < second) {
+                return true;
+            }
+
+            while(!st.empty() && nums[i] > st.top()) {
+                second = st.top();
+                st.pop();
+            }
+
+            st.push(nums[i]);
+        }
+
+        return false;
+    }
+};
 
