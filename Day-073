@@ -37,3 +37,29 @@ public:
     }
 };
 
+
+
+
+
+
+Time Complexity:
+O(n + m), where n = nums2.size() and m = nums1.size().
+
+Space Complexity:
+O(n), for the stack and unordered map.
+
+Approach:
+We traverse nums2 from right to left using a monotonic decreasing stack.
+
+stack → stores possible greater elements.
+map → stores the next greater element for every element of nums2.
+
+For every nums2[i]:
+
+Remove all elements from the stack that are smaller than or equal to nums2[i].
+If the stack is empty, there is no greater element, so store -1.
+Otherwise, s.top() is the next greater element.
+Push nums2[i] into the stack.
+
+After building the map, traverse nums1 and directly get the answer from the map.
+
