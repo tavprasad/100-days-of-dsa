@@ -32,3 +32,26 @@ public:
     }
 };
 
+
+
+
+
+Time Complexity:
+O(n), because each element is pushed and popped from the stack at most once.
+
+Space Complexity:
+O(n), for the stack and answer array.
+
+Approach:
+We use a monotonic decreasing stack and simulate the circular array by traversing 2*n elements.
+
+i % n → maps the doubled traversal back to the original array.
+stack → stores possible next greater elements.
+Traverse from right to left.
+Remove elements from the stack that are smaller than or equal to the current element.
+If the stack is empty, the answer is -1.
+Otherwise, the top of the stack is the next greater element.
+Push the current element into the stack.
+
+The 2*n traversal allows elements at the beginning of the array to find greater elements from the end of the array.
+
