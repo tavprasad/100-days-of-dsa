@@ -31,3 +31,23 @@ public:
         return answer;
     }
 };
+
+
+
+
+Time Complexity:
+O(n), because each index is pushed and popped from the stack at most once.
+
+Space Complexity:
+O(n), for the stack and answer array.
+
+Approach:
+We use a monotonic decreasing stack that stores the indices of temperatures.
+
+st → stores indices of possible warmer days.
+Traverse the array from right to left.
+Remove indices whose temperatures are smaller than or equal to the current temperature.
+If the stack is not empty, st.top() gives the nearest warmer day.
+The number of days to wait is:
+st.top() - i
+Push the current index into the stack.
