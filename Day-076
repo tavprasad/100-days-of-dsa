@@ -27,3 +27,27 @@ public:
     }
 };
 
+
+
+Time Complexity:
+O(n) amortized, because every price is pushed and popped from the stack at most once.
+
+Space Complexity:
+O(n), for the stack.
+
+Approach:
+We use a monotonic decreasing stack storing pairs:
+
+first → stock price.
+second → span of that price.
+
+For every new price:
+
+Start with span = 1 because today itself is included.
+While the top price is less than or equal to the current price, remove it and add its stored span.
+This allows us to skip multiple previous days at once.
+Push {price, span} into the stack.
+Return the calculated span.
+
+
+
