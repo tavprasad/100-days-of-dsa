@@ -32,3 +32,25 @@ public:
         return ans;
     }
 };
+
+
+
+Time Complexity:
+O(n), because we traverse the array three times.
+
+Space Complexity:
+O(n), for the lmax and rmax arrays.
+
+Approach:
+We use two arrays to store the maximum height on the left and right of every position.
+
+lmax[i] → maximum height from the left up to index i.
+rmax[i] → maximum height from the right up to index i.
+
+For every position, the amount of water it can store is:
+
+min(lmax[i], rmax[i]) - height[i]
+
+The smaller of the left and right maximum heights determines the water level.
+
+Finally, add the water stored at every position to ans.
