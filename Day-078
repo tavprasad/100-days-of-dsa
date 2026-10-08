@@ -63,3 +63,22 @@ public:
     }
 };
 
+
+
+
+
+
+Time Complexity:
+O(n) — each element is pushed and popped from the stack at most once in each traversal.
+
+Space Complexity:
+O(n) — for left, right, and the stack.
+
+Approach:
+For every bar i, assume heights[i] is the minimum height of the rectangle.
+
+left[i] = index of the first smaller bar on the left.
+right[i] = index of the first smaller bar on the right.
+Therefore, the rectangle can extend from left[i] + 1 to right[i] - 1.
+
+
