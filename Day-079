@@ -60,3 +60,24 @@ public:
         return maxArea;
     }
 };
+
+
+
+
+
+Time Complexity:
+O(rows × cols) because largestRectangleArea() takes O(cols) for every row.
+
+Space Complexity:
+O(cols) for the heights array and stack.
+
+Approach:
+The main idea is to convert every row into a histogram.
+
+For each row:
+
+If matrix[i][j] == '1', increase heights[j].
+If it is 0, reset heights[j] = 0.
+Now heights represents consecutive 1s ending at the current row.
+Apply Largest Rectangle in Histogram to this heights array.
+Keep the maximum area.
